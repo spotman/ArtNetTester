@@ -115,7 +115,7 @@ class PollTest implements ArtNetDiscoveryListener {
 //                  bufferTest[i] = value;
 
                   // Noise Sequence
-                  byte value = (byte) (Math.sin(sequenceID * 80 + i * 0.8) * 256);
+                  byte value = (byte) (Math.cos(sequenceID * 0.05 + i * 0.5) * 256);
                   bufferTest[i] = value;
 
                   // Dot test
