@@ -100,12 +100,11 @@ class PollTest implements ArtNetDiscoveryListener {
               for (int i = 0; i < 512; i++) {
                 
                 // White                
-//                byte value = (byte) 255;
-//                  bufferTest[i] = value;
+//                bufferTest[i] = 255;
                   
                   // Normal Sin Sequence
-                  byte value = (byte) (Math.sin(sequenceID * 0.05 + i * 0.8) * 127 + 128);
-                  bufferTest[i] = value;
+//                  byte value = (byte) (Math.sin(sequenceID * 0.05 + i * 0.8) * 127 + 128);
+//                  bufferTest[i] = value;
                   
                   // Add Tan Sequence
 //                  byte value = (byte) (Math.tan(sequenceID * 0.05 + i * 0.8));
@@ -114,7 +113,11 @@ class PollTest implements ArtNetDiscoveryListener {
                   // Noise Sequence
 //                  byte value = (byte) (Math.sin(sequenceID * 0.65 + i * 0.8) * 127 * 128);
 //                  bufferTest[i] = value;
-//                  
+
+                  // Noise Sequence
+                  byte value = (byte) (Math.sin(sequenceID * 80 + i * 0.8) * 256);
+                  bufferTest[i] = value;
+
                   // Dot test
 //                  index = (int) sequenceID % 512; // dot
 //                  bufferTest[i] = (byte) (i == index ? 255 : 0);
@@ -131,6 +134,7 @@ class PollTest implements ArtNetDiscoveryListener {
                 artnet.unicastPacket(dmxTest, "192.168.1.69"); 
                 artnet.unicastPacket(dmxTest, "10.211.55.5");
                 delay(2);
+//                delay(75);
               }
               
               // Local send data
